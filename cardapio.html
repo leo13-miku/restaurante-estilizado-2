@@ -7,68 +7,140 @@
     <link rel="stylesheet" href="cardapio.css">
 </head>
 <body>
-  
-   <!-- header para o cabeçalho  -->
-   <header> 
-        <img src="logo.kk.png" alt="logo do restaurante" class="logo">
-        <h1> restaurante & cia </h1>
+    <header>
+        <img src="logo.kk.png" alt="Logo do restaurante Restaurante & Cia" class="logo">
+        <h1>Restaurante & Cia</h1>
     </header>
 
-  <!-- nav para a navegação -->
-   <nav>
-      <ul>
-          <li href="#entradas">Entradas</li>
-          <li href="#prato">Pratos principais</li>
-          <li href="#sobremesa">sobremesas</li>
-      </ul>
-   </nav>
+    <nav aria-label="Menu Principal">
+        <ul>
+            <li><a href="#entradas" aria-label="Ir para a seção de entradas">Entradas</a></li>
+            <li><a href="#pratos" aria-label="Ir para a seção de pratos principais">Pratos Principais</a></li>
+        </ul>
+    </nav>
 
-   <!-- main para o conteudo principal -->
-   <main>
+    <main>
+        <div id="filtros">
+            <button class="filtro" data-categoria="todos">Todos</button>
+            <button class="filtro" data-categoria="vegetariano">Vegetarianos</button>
+            <button class="filtro" data-categoria="sem-gluten">Sem Glúten</button>
+        </div>
 
-    <!-- para sistribuir as informações -->
-        <section id="entradas">
-
-            <h2>entradas</h2>
-
-              <article> <img src="frango-fritokk.jpg" alt="foto Frango"> 
-              <h3>Frango frito</h3>
-              <p>uma deliciosa porçao de Frango</p>
-              <p>13,70</p> 
-            </article>
-
-            <article>
-             <img src="download.jpg" alt="foto batata">
-              <h3>batata frita</h3>
-              <p>porçao deliciosa de batatas fritas</p>
-              <p>10,50</p>
-            </article>
-
+        <section id="entradas" aria-labelledby="titulo-entradas">
+            <h2 id="titulo-entradas">Entradas</h2>
+            <div id="entradas-container"></div>
         </section>
-         <section id="pratos">
 
-            <h2>pratos</h2>
-
-               <article> <img src="churrasco-cursos-cpt.jpg" alt="foto churrasco"> 
-              <h3>churrasco</h3>
-              <p>um delicioso churrasco</p>
-               <p>12,00</p> 
-             </article>
-
-            <article>
-             <img src="prato feitokk.jpg" alt="foto prato">
-              <h3>prato feito</h3>
-              <p>um prato feito delicioso</p>
-              <p>16,90</p>
-            </article>
+        <section id="pratos" aria-labelledby="titulo-pratos">
+            <h2 id="titulo-pratos">Pratos Principais</h2>
+            <div id="pratos-container"></div>
         </section>
-   </main>
 
-<!-- footer para o pé do site -->
- <footer>
-    2025 restaurante sabor & cia
- </footer>
-  
+        <div id="carrinho">
+            <span>Carrinho: </span>
+            <span id="contador-carrinho">0</span>
+        </div>
+    </main>
 
+    <footer>
+        2025 Restaurante Sabor & Cia
+    </footer>
+
+    <script>
+        const cardapio = {
+            entradas: [
+                {
+                    nome: "Frango Frito",
+                    descricao: "Uma deliciosa porção de frango.",
+                    preco: 13.70,
+                    imagem: "frango-fritokk.jpg",
+                    descricaoImagem: "Foto de frango frito.",
+                    link: "link-do-frango.html",
+                    categorias: ["todos"]
+                },
+                {
+                    nome: "Batata Frita",
+                    descricao: "Porção deliciosa de batatas fritas.",
+                    preco: 10.50,
+                    imagem: "download.jpg",
+                    descricaoImagem: "Foto de batatas fritas.",
+                    link: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fg1.globo.com%2Fba%2Fbahia%2Fespecial-publicitario%2Fle-biscuit%2Fdicas-da-le%2Fnoticia%2F2022%2F08%2F18%2Fbatata-frita-sem-culpa-aprenda-a-fazer-fritas-sequinhas-na-airfryer.ghtml&psig=AOvVaw2b2dOnnm_I0h-OwkXxjBeP&ust=1743592881878000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNDdwebbtowDFQAAAAAdAAAAABAb",
+                    categorias: ["todos", "vegetariano", "sem-gluten"]
+                }
+            ],
+            pratos: [
+                {
+                    nome: "Churrasco",
+                    descricao: "Um delicioso churrasco.",
+                    preco: 12.00,
+                    imagem: "churrasco-cursos-cpt.jpg",
+                    descricaoImagem: "Foto de churrasco.",
+                    link: "link-do-churrasco.html",
+                    categorias: ["todos"]
+                },
+                {
+                    nome: "Prato Feito",
+                    descricao: "Um prato feito delicioso.",
+                    preco: 16.90,
+                    imagem: "prato feitokk.jpg",
+                    descricaoImagem: "Foto de prato feito.",
+                    link: "link-do-prato-feito.html",
+                    categorias: ["todos", "sem-gluten"]
+                }
+            ]
+        };
+
+        let contadorCarrinho = 0;
+
+        function criarItemCardapio(item) {
+            return `
+                <article>
+                    <a href="${item.link}">
+                        <img src="${item.imagem}" alt="${item.descricaoImagem}">
+                    </a>
+                    <h3>${item.nome}</h3>
+                    <p>${item.descricao}</p>
+                    <span class="preco">R$ ${item.preco.toFixed(2)}</span>
+                    <button class="adicionar-carrinho" data-nome="${item.nome}">Adicionar</button>
+                </article>
+            `;
+        }
+
+        function renderizarCardapio(secao, dados, containerId) {
+            const container = document.getElementById(containerId);
+            if (container) {
+                container.innerHTML = dados.map(criarItemCardapio).join("");
+            } else {
+                console.error(`Container com ID "${containerId}" não encontrado.`);
+            }
+        }
+
+        renderizarCardapio("entradas", cardapio.entradas, "entradas-container");
+        renderizarCardapio("pratos", cardapio.pratos, "pratos-container");
+
+        document.addEventListener("click", function(event) {
+            if (event.target.classList.contains("adicionar-carrinho")) {
+                contadorCarrinho++;
+                document.getElementById("contador-carrinho").textContent = contadorCarrinho;
+                console.log(`Adicionado ${event.target.dataset.nome} ao carrinho.`);
+            }
+
+            if (event.target.classList.contains("filtro")) {
+                const categoria = event.target.dataset.categoria;
+                const itensFiltrados = [];
+
+                for (const secao in cardapio) {
+                    cardapio[secao].forEach(item => {
+                        if (item.categorias.includes(categoria) || categoria === "todos") {
+                            itensFiltrados.push(item);
+                        }
+                    });
+                }
+
+                renderizarCardapio("entradas", itensFiltrados, "entradas-container");
+                renderizarCardapio("pratos", itensFiltrados, "pratos-container");
+            }
+        });
+    </script>
 </body>
 </html>

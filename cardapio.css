@@ -2,13 +2,13 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background-color: #f4f4f4;
     color: #333;
     margin: 0;
 }
 
 header {
-    background-color: #c0392b;
+    background-color: #5a6268;
     color: white;
     padding: 20px;
     display: flex;
@@ -24,7 +24,7 @@ header .logo {
 }
 
 nav {
-    background-color: #e74c3c;
+    background-color: #717d85;
     padding: 10px 0;
     text-align: center;
     margin: 0%;
@@ -39,14 +39,15 @@ nav ul {
     flex-wrap: wrap;
 }
 
-nav ul li {
+nav ul a {
     margin: 5px 15px;
     font-size: 18px;
     color: white;
     cursor: pointer;
+    text-decoration: none;
 }
 
-nav ul li:hover {
+nav ul a:hover {
     text-decoration: underline;
 }
 
@@ -54,6 +55,7 @@ main {
     padding: 20px;
     text-align: center;
 }
+
 main section {
     display: flex;
     flex-wrap: wrap;
@@ -67,8 +69,8 @@ section {
 }
 
 h2 {
- text-align: center;
-    color: #c0392b;
+    text-align: center;
+    color: #5a6268;
 }
 
 article {
@@ -79,18 +81,29 @@ article {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 h3 {
-    color: #e74c3c;
+    color: #717d85;
 }
 
 p {
     margin: 5px 0;
 }
 
+.preco {
+    font-weight: bold;
+    color: #4a5259;
+}
+
 footer {
-    background-color: #c0392b;
+    background-color: #5a6268;
     color: white;
     text-align: center;
     padding: 15px;
@@ -98,16 +111,60 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+#carrinho {
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.adicionar-carrinho {
+    background-color: #717d85;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.adicionar-carrinho:hover {
+    background-color: #5a6268;
+}
+
+#filtros {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.filtro {
+    background-color: #717d85;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.filtro:hover {
+    background-color: #5a6268;
+}
+
 @media (max-width: 1200px) {
     article {
         width: calc(33.33% - 40px);
     }
 }
+
 @media (max-width: 768px) {
     article {
         width: calc(50% - 40px);
     }
 }
+
 @media (max-width: 600px) {
     nav ul {
         flex-direction: column;
