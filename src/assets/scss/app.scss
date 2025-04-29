@@ -1,0 +1,86 @@
+/* src/assets/scss/app.scss ou seu arquivo CSS principal */
+
+/* Estilos Globais (Opcional, mas bom ter) */
+body {
+	font-family: sans-serif; // Define uma fonte padrão
+	margin: 0; // Remove margens padrão do body
+	padding: 0;
+	background-color: #f8f8f8; // Um fundo levemente cinza
+  }
+  
+  /* Contêiner Principal do Cardápio */
+  .cardapio-container {
+	max-width: 1200px; // Limita a largura máxima
+	margin: 20px auto; // Centraliza o contêiner e adiciona margem em cima/baixo
+	padding: 20px; // Espaçamento interno
+	background-color: #ffffff; // Fundo branco para o conteúdo
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Sombra sutil
+	border-radius: 8px; // Cantos arredondados
+  }
+  
+  /* Título Principal */
+  .cardapio-container h1 {
+	text-align: center; // Centraliza o título
+	color: #333; // Cor escura para o texto
+	margin-bottom: 30px; // Espaço abaixo do título
+  }
+  
+  /* Contêiner da Lista de Itens */
+  .lista-itens-cardapio {
+	display: flex; // Usa Flexbox para alinhar os itens
+	flex-wrap: wrap; // Permite que os itens quebrem para a próxima linha
+	gap: 25px; // Espaço entre os itens (horizontal e vertical)
+	justify-content: center; // Centraliza os itens na linha quando há espaço sobrando
+  }
+  
+  /* Estilo Individual de Cada Item do Cardápio */
+  .menu-item {
+	background-color: #fff; // Fundo branco para cada item
+	border: 1px solid #eee; // Borda sutil
+	border-radius: 8px; // Cantos arredondados
+	padding: 15px; // Espaçamento interno do item
+	width: 280px; // Largura fixa para cada item (ajuste conforme necessário)
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); // Sombra bem leve
+	text-align: center; // Centraliza o texto dentro do item
+	transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; // Efeito suave ao passar o mouse
+  
+	&:hover {
+	  transform: translateY(-5px); // Levanta um pouco o card ao passar o mouse
+	  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12); // Aumenta a sombra no hover
+	}
+  }
+  
+  /* Estilo da Imagem do Item */
+  .menu-item-imagem {
+	width: 100%; // Faz a imagem ocupar toda a largura do .menu-item
+	height: 180px; // Altura fixa para a imagem (ajuste conforme necessário)
+	object-fit: cover; // Garante que a imagem cubra a área sem distorcer (pode cortar)
+	border-radius: 6px; // Cantos arredondados para a imagem
+	margin-bottom: 15px; // Espaço abaixo da imagem
+	display: block; // Remove espaço extra abaixo da imagem (comportamento de inline)
+  }
+  
+  /* Estilo do Nome do Item (h3) */
+  .menu-item h3 {
+	font-size: 1.2em; // Tamanho da fonte para o nome
+	color: #444; // Cor do nome
+	margin-top: 0; // Remove margem padrão superior do h3
+	margin-bottom: 8px; // Espaço abaixo do nome
+  }
+  
+  /* Estilo da Descrição do Item (p) */
+  .menu-item p {
+	font-size: 0.9em; // Tamanho da fonte para a descrição
+	color: #666; // Cor mais clara para a descrição
+	margin-bottom: 12px; // Espaço abaixo da descrição
+	min-height: 40px; // Garante uma altura mínima para alinhar melhor visualmente
+  }
+  
+  /* Estilo do Preço do Item (span) */
+  .menu-item-preco {
+	display: block; // Faz o span ocupar a linha inteira para centralizar
+	font-size: 1.1em; // Tamanho da fonte para o preço
+	font-weight: bold; // Deixa o preço em negrito
+	color: #008000; // Cor verde para o preço (ajuste conforme preferir)
+	margin-top: auto; // Ajuda a empurrar o preço para baixo se usar flex no .menu-item no futuro
+  }
