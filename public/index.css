@@ -1,0 +1,167 @@
+/* css/style.css */
+
+/* Reset Básico e Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Faz com que padding e border não aumentem o tamanho total do elemento */
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Fonte importada no HTML */
+    line-height: 1.6;
+    color: #333; /* Cor de texto padrão */
+    background-color: #f4f4f4; /* Cor de fundo suave */
+    display: flex; /* Para centralizar o conteúdo se necessário ou para layout de página inteira */
+    flex-direction: column; /* Empilha os filhos verticalmente */
+    min-height: 100vh; /* Garante que o corpo ocupe pelo menos a altura total da viewport */
+}
+
+a {
+    text-decoration: none; /* Remove sublinhado padrão dos links */
+    color: #007bff; /* Cor azul padrão para links */
+}
+
+a:hover {
+    text-decoration: underline; /* Adiciona sublinhado no hover para feedback */
+}
+
+img {
+    max-width: 100%; /* Garante que as imagens não ultrapassem seus contêineres */
+    height: auto;
+}
+
+/* Estilos do Cabeçalho (Header) */
+header {
+    background-color: #333; /* Cor de fundo escura para o cabeçalho */
+    color: #fff; /* Cor do texto clara */
+    padding: 1rem 0; /* Espaçamento interno vertical */
+    border-bottom: 3px solid #007bff; /* Borda inferior azul */
+}
+
+header nav {
+    max-width: 1100px; /* Largura máxima do conteúdo da navegação */
+    margin: 0 auto; /* Centraliza a navegação */
+    padding: 0 20px; /* Espaçamento lateral para não colar nas bordas */
+    display: flex; /* Alinha o logo e a lista de links */
+    justify-content: space-between; /* Espaça o logo e os links */
+    align-items: center; /* Alinha verticalmente ao centro */
+}
+
+header .logo {
+    font-size: 1.8rem; /* Tamanho da fonte do logo */
+    font-weight: bold;
+    color: #fff; /* Garante que o logo seja branco */
+    text-decoration: none; /* Remove sublinhado do logo */
+}
+
+header .logo:hover {
+    color: #007bff; /* Muda a cor no hover */
+    text-decoration: none; /* Mantém sem sublinhado */
+}
+
+header nav ul {
+    list-style-type: none; /* Remove os marcadores de lista */
+    display: flex; /* Coloca os itens da lista em linha */
+}
+
+header nav ul li {
+    margin-left: 20px; /* Espaçamento entre os itens do menu */
+}
+
+header nav ul li a {
+    color: #fff; /* Cor dos links do menu */
+    padding: 5px 10px; /* Espaçamento interno para melhor clique */
+    border-radius: 4px; /* Bordas arredondadas leves */
+    transition: background-color 0.3s ease; /* Transição suave para o hover */
+}
+
+header nav ul li a:hover {
+    background-color: #555; /* Cor de fundo no hover */
+    text-decoration: none; /* Remove sublinhado no hover */
+}
+
+/* Estilos do Conteúdo Principal (Main) */
+main {
+    flex-grow: 1; /* Faz com que o main ocupe o espaço restante entre header e footer */
+    padding: 20px;
+    max-width: 1100px; /* Largura máxima do conteúdo principal */
+    width: 100%;
+    margin: 20px auto; /* Centraliza o conteúdo principal e adiciona margem vertical */
+    background-color: #fff; /* Fundo branco para o conteúdo principal */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra sutil */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Estilos específicos para o <div id="root"> (onde o React renderiza) */
+#root {
+    /* Você pode adicionar estilos aqui se precisar que o container do React
+       tenha características específicas antes do React carregar. */
+}
+
+#root h1, #root p {
+    text-align: center; /* Centraliza o texto de fallback */
+    margin-bottom: 15px;
+}
+
+/* Estilos do Rodapé (Footer) */
+footer {
+    background-color: #333; /* Cor de fundo escura para o rodapé */
+    color: #fff; /* Cor do texto clara */
+    text-align: center; /* Centraliza o texto */
+    padding: 1.5rem 0; /* Espaçamento interno */
+    margin-top: auto; /* Garante que o rodapé fique na parte inferior se o conteúdo for curto */
+}
+
+footer p {
+    margin-bottom: 0.5rem; /* Espaçamento entre os parágrafos do rodapé */
+}
+
+footer a {
+    color: #007bff; /* Cor dos links no rodapé */
+}
+
+footer a:hover {
+    color: #0056b3; /* Cor mais escura no hover */
+}
+
+/* Estilo para o <noscript> - já um pouco estilizado no HTML, pode ser aprimorado aqui */
+noscript div {
+    background-color: #fff3cd; /* Amarelo claro para alerta */
+    color: #856404; /* Cor de texto escura para contraste */
+    border: 1px solid #ffeeba; /* Borda correspondente */
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+/* Media Queries para Responsividade (Exemplo) */
+@media (max-width: 768px) {
+    header nav {
+        flex-direction: column; /* Empilha o logo e o menu em telas menores */
+        align-items: flex-start; /* Alinha ao início */
+    }
+
+    header nav ul {
+        margin-top: 10px; /* Espaço entre o logo e o menu */
+        width: 100%; /* Faz o menu ocupar toda a largura */
+        flex-direction: column; /* Empilha os itens do menu */
+    }
+
+    header nav ul li {
+        margin-left: 0; /* Remove margem esquerda */
+        margin-bottom: 10px; /* Adiciona margem inferior */
+        width: 100%;
+    }
+
+    header nav ul li a {
+        display: block; /* Faz o link ocupar toda a largura do li */
+        text-align: center; /* Centraliza o texto do link */
+    }
+
+    main {
+        padding: 15px;
+        margin: 15px auto;
+    }
+}

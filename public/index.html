@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <!-- Metadados Essenciais -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Título da Página (Aparece na aba do navegador e nos resultados de busca) -->
+    <title>Minha Aplicação Web Completa</title>
+
+    <!-- Descrição da Página (Para SEO e compartilhamento) -->
+    <meta name="description" content="Uma descrição concisa e informativa da minha aplicação web.">
+
+    <!-- Palavras-chave (Menos importantes para SEO hoje em dia, mas podem ser úteis) -->
+    <meta name="keywords" content="web app, react, javascript, projeto, exemplo">
+
+    <!-- Autor da Página -->
+    <meta name="author" content="Seu Nome ou Nome da Empresa">
+
+    <!-- Favicon (Ícone da aba do navegador) -->
+    <!-- Gere seus favicons em https://realfavicongenerator.net/ e substitua os links abaixo -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Links para Fontes (Exemplo: Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Link para sua Folha de Estilo CSS Principal -->
+    <!-- Coloque seus arquivos CSS em uma pasta 'css' ou 'styles' por organização -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Você pode adicionar outros links ou scripts aqui, como bibliotecas de terceiros carregadas via CDN -->
+    <!-- Exemplo: <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+</head>
+<body>
+    <!-- Cabeçalho da Página -->
+    <header>
+        <nav>
+            <a href="/" class="logo">LogoApp</a>
+            <ul>
+                <li><a href="/">Início</a></li>
+                <li><a href="/sobre">Sobre</a></li>
+                <li><a href="/servicos">Serviços</a></li>
+                <li><a href="/contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal da Página -->
+    <main>
+        <!-- Mensagem para usuários com JavaScript desabilitado -->
+        <noscript>
+            <div style="background-color: #ffdddd; border: 1px solid #ff0000; padding: 15px; text-align: center;">
+                <strong>Atenção:</strong> Você precisa habilitar o JavaScript para que esta aplicação funcione corretamente.
+            </div>
+        </noscript>
+
+        <!-- Este é o contêiner onde sua aplicação React (ou similar) será renderizada -->
+        <div id="root">
+            <!-- Conteúdo de fallback ou um loader pode ser colocado aqui se desejado,
+                 mas geralmente o React o substituirá rapidamente. -->
+            <h1>Carregando aplicação...</h1>
+            <p>Por favor, aguarde.</p>
+        </div>
+    </main>
+
+    <!-- Rodapé da Página -->
+    <footer>
+        <p>© <span id="currentYear"></span> Seu Nome ou Nome da Empresa. Todos os direitos reservados.</p>
+        <p>
+            <a href="/politica-de-privacidade">Política de Privacidade</a> |
+            <a href="/termos-de-uso">Termos de Uso</a>
+        </p>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <!--
+        Se você estiver usando uma ferramenta de build (como Create React App, Webpack, Vite, Parcel),
+        o script principal da sua aplicação (ex: bundle.js) será injetado automaticamente aqui
+        ou no final do <head> com o atributo 'defer'.
+
+        Se você estiver incluindo scripts manualmente:
+        1. Bibliotecas de terceiros (se não carregadas no head com defer/async)
+        2. Seu script principal da aplicação (ex: main.js ou o bundle.js gerado)
+    -->
+    <!-- Exemplo de script local (coloque em uma pasta 'js' ou 'scripts') -->
+    <!-- <script src="js/main.js"></script> -->
+
+    <!-- Script para atualizar o ano no rodapé (opcional, apenas um exemplo de JS vanilla) -->
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>

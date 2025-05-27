@@ -2,12 +2,13 @@
 import React from 'react';
 
 // Importe o componente MenuItem
-import MenuItem from './components/MenuItem';
+import MenuItem from './components/MenuItem.js'; // Adicionada extensão .js por clareza, opcional dependendo do bundler
 
+// Importe os dados do menu do local correto
+import menuItems from './components/data.js'; // <-- CORREÇÃO: O caminho agora aponta para src/components/data.js
 
-import menuItems from './data'; // <-- Linha CORRETA (busca o arquivo src/data.js) // <-- Ajuste aqui
-// Importe estilos se necessário (ex: './App.css' ou seu arquivo SCSS)
- import './assets/scss/app.scss'; // Descomente se ainda estiver usando o SCSS
+// Importe estilos SCSS (assumindo que app.scss está em src/assets/scss/app.scss)
+import './assets/scss/app.scss';
 
 const App = () => {
   return (
